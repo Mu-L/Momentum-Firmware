@@ -1,5 +1,6 @@
 ## Main changes
 - Current API: 87.6
+* SubGHz: Add **Nord ICE** protocol (33 bits, Static)
 * SubGHz: Add **CAME TOP44FGN** support in CAME TWEE protocol
 * NFC: Add Mifare Ultralight C Write Support (by @haw8411)
 * Apps: Build tag (**9mar2026p3**) - **Check out more Apps updates and fixes by following** [this link](https://github.com/xMasterX/all-the-plugins/commits/dev)
