@@ -4,7 +4,7 @@
 * SubGHz: Add **CAME TOP44FGN** support in CAME TWEE protocol
 * SubGHz: Add all 0x0s and all 0xFs KeeLoq MF codes for normal and simple learning
 * NFC: Add Mifare Ultralight C Write Support (by @haw8411)
-* Apps: Build tag (**14mar2026**) - **Check out more Apps updates and fixes by following** [this link](https://github.com/xMasterX/all-the-plugins/commits/dev)
+* Apps: Build tag (**20mar2026**) - **Check out more Apps updates and fixes by following** [this link](https://github.com/xMasterX/all-the-plugins/commits/dev)
 ## Other changes
 * Display: Extend lcd contrast range to full ST756x 6-bit range (by @ShaTie) (reduced to -10 to +18 to avoid fully unreadable state)
 <br><br>
