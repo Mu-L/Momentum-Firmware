@@ -1,3 +1,9 @@
+### Known Issues:
+- Sub-GHz app is now external due to running out of space in flash, but it uses almost all available RAM. This means that:
+  - qFlipper / Mobile App cannot be used together with Sub-GHz app for now
+  - Only 20-30 signals can be kept at a time in receive history while in Read mode
+  - Opening Sub-GHz after using a few other apps may result in an out of memory warning, simply reboot and it will work again
+
 ### Added:
 - Apps:
   - Games: Checkers (by @H4W9)

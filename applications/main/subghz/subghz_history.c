@@ -5,7 +5,8 @@
 #include <furi.h>
 
 #define SUBGHZ_HISTORY_MAX       65535 // uint16_t index max, ram limit below
-#define SUBGHZ_HISTORY_FREE_HEAP (23624 * (1 - MIN(rpc_get_sessions_count(instance->rpc), 1U)))
+// #define SUBGHZ_HISTORY_FREE_HEAP (23624 * (1 - MIN(rpc_get_sessions_count(instance->rpc), 1U)))
+#define SUBGHZ_HISTORY_FREE_HEAP (2048)
 
 #define TAG "SubGhzHistory"
 
