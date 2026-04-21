@@ -1,6 +1,7 @@
 ## Main changes
 - Current API: 87.7
 * SubGHz: Add support for **42+ Keeloq based systems** (with partial Add Manually support) (see [Full list](/documentation/SubGHzSupportedSystems.md)) (by @zero-mega, @xMasterX, ARF Team)
+* SubGHz: Add **Allstar Firefly 318ALD31K** protocol (18 bits, Static) (PR #989 | by @jlaughter)
 * SubGHz: Add **Nord ICE** protocol (33 bits, Static)
 * SubGHz: **Better support for CAME Atomo** type remotes (TOPD4REN) (decode + button codes) (thx to Roman for raw recordings)
 * SubGHz: Add **CAME TOP44FGN** support in CAME TWEE protocol

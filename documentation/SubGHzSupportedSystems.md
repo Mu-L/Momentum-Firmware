@@ -58,6 +58,7 @@ That list is only for default SubGHz app, apps like *Weather Station* have their
 - Nero Radio `434.42MHz` `AM650` (56 bits, Static mode only, Dynamic is unsupported)
 - Security+1.0 `315MHz, 433.92MHz, 390MHz` `AM650` (42 bits, Dynamic)
 - Security+2.0 `310MHz, 390MHz, 868MHz` `AM650` (62 bits, Dynamic)
+- Allstar Firefly 318ALD31K `318MHz` `AM650` (18 bits, Static)
 
 ### Sensors & Smart home
 - Intertechno V3 `AM650` (32 bits, Static) - Lights, sockets, other.
