@@ -7,6 +7,7 @@
 * SubGHz: Add **CAME TOP44FGN** support in CAME TWEE protocol
 * SubGHz: Add all 0x0s and all 0xFs KeeLoq MF codes for normal and simple learning
 * SubGHz: **Fix CAME TWEE repeats count for button click**
+* SubGHz: Improve Nice FLO decoding (thx to Roman for raw recordings)
 * NFC: Add **ISO15693-3 and SLIX write-back support** (PR #984 | by @DoniyorI)
 * NFC: **Fix "MIR" and other EMV cards crash on Read** (by @Dmitry422)
 * NFC: Add **Mifare Ultralight C Write Support** (by @haw8411)
