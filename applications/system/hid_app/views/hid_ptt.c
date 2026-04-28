@@ -717,13 +717,13 @@ static void hid_ptt_draw_status_bar(Canvas* canvas, bool show_bt, bool connected
 
     if(show_bt) {
         if(connected) {
-            canvas_draw_bitmap(canvas, 3, 2, 16, 8, hid_ptt_bluetooth_connected_16x8_bits);
+            canvas_draw_bitmap(canvas, 2, 2, 16, 8, hid_ptt_bluetooth_connected_16x8_bits);
         } else {
-            canvas_draw_bitmap(canvas, 3, 2, 5, 8, hid_ptt_bluetooth_idle_5x8_bits);
+            canvas_draw_bitmap(canvas, 2, 2, 5, 8, hid_ptt_bluetooth_idle_5x8_bits);
         }
     }
 
-    const uint8_t battery_x = 47;
+    const uint8_t battery_x = 48;
     const uint8_t battery_y = 3;
     const uint8_t battery_w = 13;
     const uint8_t battery_h = 6;
@@ -732,7 +732,7 @@ static void hid_ptt_draw_status_bar(Canvas* canvas, bool show_bt, bool connected
     canvas_draw_box(canvas, battery_x + 1, battery_y + 1, ((battery_w - 2) * battery) / 100, 4);
 
     canvas_set_font(canvas, FontPrimary);
-    canvas_draw_str_aligned(canvas, 31, 10, AlignCenter, AlignBottom, time_str);
+    canvas_draw_str_aligned(canvas, 33, 10, AlignCenter, AlignBottom, time_str);
 }
 
 static void hid_ptt_draw_callback(Canvas* canvas, void* context) {
