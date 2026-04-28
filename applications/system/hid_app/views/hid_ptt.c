@@ -775,7 +775,14 @@ static void hid_ptt_draw_callback(Canvas* canvas, void* context) {
 
     const uint8_t top_offset = 13;
     const uint8_t status_bar_bottom_y = top_offset;
-    const uint8_t helper_top_y = 92;
+    
+    // For Zoom/Zoom Global, keep helper banner higher to show Enter key hint space
+    // For other apps, move it down to close the gap
+    uint8_t helper_top_y = 102;
+    if(model->appIndex == HidPushToTalkAppIndexZoom || 
+       model->appIndex == HidPushToTalkAppIndexZoomGlobal) {
+        helper_top_y = 92;
+    }
 
     const uint8_t x_1 = 0;
     const uint8_t x_2 = x_1 + 19 + 4;
