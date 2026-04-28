@@ -676,7 +676,19 @@ static void hid_ptt_draw_text_centered(Canvas* canvas, uint8_t y, FuriString* st
     furi_string_free(disp_str);
 }
 
-static void hid_ptt_draw_status_bar(Canvas* canvas, bool connected) {
+static void hid_ptt_draw_bt_connected(Canvas* canvas, uint8_t x, uint8_t y) {
+    // Home-like compact Bluetooth glyph with activity line and end dot.
+    canvas_draw_line(canvas, x + 1, y + 0, x + 1, y + 7);
+    canvas_draw_line(canvas, x + 1, y + 4, x + 4, y + 1);
+    canvas_draw_line(canvas, x + 1, y + 4, x + 4, y + 7);
+    canvas_draw_line(canvas, x + 1, y + 0, x + 4, y + 2);
+    canvas_draw_line(canvas, x + 1, y + 7, x + 4, y + 5);
+
+    canvas_draw_line(canvas, x + 6, y + 4, x + 12, y + 4);
+    canvas_draw_disc(canvas, x + 14, y + 4, 1);
+}
+
+static void hid_ptt_draw_status_bar(Canvas* canvas, bool show_bt, bool connected) {
     char time_str[16];
     DateTime dt;
     furi_hal_rtc_get_datetime(&dt);
@@ -703,10 +715,8 @@ static void hid_ptt_draw_status_bar(Canvas* canvas, bool connected) {
     canvas_draw_rframe(canvas, 0, 0, 64, 11, 1);
     canvas_draw_line(canvas, 1, 9, 62, 9);
 
-    if(connected) {
-        canvas_draw_icon(canvas, 1, 0, &I_Ble_connected_15x15);
-    } else {
-        canvas_draw_icon(canvas, 1, 0, &I_Ble_disconnected_15x15);
+    if(show_bt && connected) {
+        hid_ptt_draw_bt_connected(canvas, 3, 1);
     }
 
     const uint8_t battery_x = 47;
@@ -745,9 +755,9 @@ static void hid_ptt_draw_callback(Canvas* canvas, void* context) {
     // Header
     canvas_set_font(canvas, FontPrimary);
 #ifdef HID_TRANSPORT_BLE
-    hid_ptt_draw_status_bar(canvas, model->connected);
+    hid_ptt_draw_status_bar(canvas, true, model->connected);
 #else
-    hid_ptt_draw_status_bar(canvas, false);
+    hid_ptt_draw_status_bar(canvas, false, false);
 #endif
 
     // OS and App labels
