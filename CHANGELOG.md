@@ -19,6 +19,7 @@
 ## Other changes
 * HID App: PTT improvements (PR #996 | by @hryamzik)
 * UI: Wording changes to be more clear (PR #994 | by @SkeletonMan03)
+* SubGHz: Fix duplicate code in RAW protocol
 * SubGHz: Fix small logic error in KingGatesStylo4k protocol (found by @X-Stuff)
 * OFW PR 4364: JS: Address utf8 support when uploading JavaScript application (by @bekindpleaserewind)
 * Display: Extend lcd contrast range to full ST756x 6-bit range (by @ShaTie) (reduced to -10 to +18 to avoid fully unreadable state)
