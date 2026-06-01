@@ -10,12 +10,16 @@
   - Sub-GHz: ProtoPirate (by @RocketGod-git & @xMasterX & @zero-mega et al.)
   - Tools: Flipper Wedge (by @dangerous-tac0s)
 - Sub-GHz:
+  - UL: Add support for 42+ Keeloq based systems (with partial Add Manually support) (by @zero-mega, @xMasterX, ARF Team)
   - UL: Cardin S449 protocol full support (64bit keeloq) (with Add manually, and all button codes) (use FSK12K modulation to read the remote) (by @xMasterX & @zero-mega)
   - UL: Beninca ARC AES128 protocol full support (128bit dynamic) (with Add manually, and 2 button codes) (by @xMasterX & @zero-mega)
   - UL: Jarolift protocol full support (72bit dynamic) (with Add manually, and all button codes) (by @xMasterX & d82k & Steffen (bastelbudenbuben de))
   - UL: Treadmill37 protocol support (37bit static) (by @xMasterX)
   - UL: Ditec GOL4 protocol (with programming mode, button switch, add manually) (by @xMasterX & @zero-mega)
   - UL: KeyFinder protocol (24bit static) (by @xMasterX & @mishamyte)
+  - UL: Nord ICE protocol (33 bits, Static) (by @xMasterX)
+  - UL: Allstar Firefly 318ALD31K protocol (18 bits, Static) (by @jlaughter)
+  - UL: Add CAME TOP44FGN support in CAME TWEE protocol (by @xMasterX)
   - UL: New modulation FSK with 12KHz deviation (by @xMasterX)
   - UL: KingGates Stylo 4k Add manually and button switch support and refactoring of encoder (by @xMasterX)
   - UL: Stilmatic (R-Tech) 12bit discr. fix & button 9 support (two buttons hold simulation) (mapped on arrow keys) (by @xMasterX)
@@ -27,16 +31,23 @@
   - UL: TX Power setting (by @LeeroysHub)
   - UL: Somfy Keytis button switch and Add Manually support (by @xMasterX)
   - UL: Genius Echo/Bravo add 2 buttons hold simulation (0xB btn code) (by @xMasterX)
-- NFC: Add Mifare Ultralight C Write Support (#524 by @haw8411)
-- OFW: RFID: Add Indala 224-bit (long format) protocol support (by @kuzaxak)
+  - UL: Add all 0x0s and all 0xFs KeeLoq MF codes for normal and simple learning (by @xMasterX)
+  - UL: Better support for CAME Atomo type remotes (TOPD4REN) (decode + button codes) (by @xMasterX & Roman)
+- NFC:
+  - Add Mifare Ultralight C Write Support (#524 by @haw8411)
+  - UL: Add ISO15693-3 and SLIX write-back support (by @DoniyorI)
+  - UL: Add new parsers SZPPK, SKPPK and SevPPK, upgrade Plantain parser, fix TwoCities parser (by @mxcdoam)
+- OFW PR 4343: RFID: Add Indala 224-bit (long format) protocol support (by @kuzaxak)
 - UL: JS: Add IR capabilities to the JS engine (by @LuisMayo)
 - FBT: Allow apps to specify custom cflags (by @WillyJL)
 - UL: Docs: Add [full list of supported SubGHz protocols](https://github.com/Next-Flip/Momentum-Firmware/blob/dev/documentation/SubGHzSupportedSystems.md) and their frequencies/modulations that can be used for reading remotes (by @xMasterX)
+UL: API: Add `canvas_get_buffer`, `canvas_get_buffer_size` to public API (by @xMasterX)
 
 ### Updated:
 - Apps:
   - XERO: MFKey: 4.1 with 40% faster key recovery, improved memory efficiency (by @dchristle), new SEN dictionary for 10x faster recovery (by @noproto)
   - UL: Update Sub-GHz apps for FM12K modulation (by @xMasterX)
+  - UL: USB/BT Remote: PTT improvements (by @hryamzik)
   - CAN Tools: Parity with DBC format, support importing DBC files (by @MatthewKuKanich)
   - ESP Flasher: Bump Marauder 1.10.2 (by @justcallmekoko)
   - ESP32 WiFi Marauder: Marauder 1.10.0 support (by @justcallmekoko), Marauder 1.9.0 support (by @H4W9)
@@ -76,8 +87,9 @@
   - UL: Signal Settings Improvements (by @Dmitry422)
   - UL: KeeLoq change delta size (by @xMasterX)
 - Archive: Support opening and pinning ProtoPirate files from Archive (#510 by @LeeroysHub)
-- OFW: RFID: Make FDX-B readout more descriptive (by @snowsign)
-- OFW: API: Make `view_port_send_to_back()` public (by @loftyinclination)
+- Display: Extend lcd contrast range to -10 to +18 (by @ShaTie)
+- OFW PR 4297: RFID: Make FDX-B readout more descriptive (by @snowsign)
+- OFW PR 4320: API: Make `view_port_send_to_back()` public (by @loftyinclination)
 
 ### Fixed:
 - Sub-GHz:
@@ -90,18 +102,27 @@
   - UL: Fix documentation link for HT12A protocol (by @carlogrisetti)
   - UL: BFT Mitto fix decode bug (seed was not resetting after one successful decode) (by @xMasterX)
   - UL: KeeLoq fix display of AN-Motors and HCS101 keys (by @xMasterX)
+  - UL: Fix CAME TWEE repeats count for button click (by @xMasterX)
+  - UL: Fix small logic error in KingGatesStylo4k protocol (by @xMasterX & @X-Stuff)
+  - UL: Improve Nice FLO decoding (by @xMasterX & Roman)
+  - UL: Fix duplicate code in RAW protocol (by @xMasterX)
+  - UL: Fix FAAC SLH wrong decode/encode, apply little code cleanup (by @xMasterX)
 - NFC:
   - Fix sending 32+ byte ISO 15693-3 commands (by @WillyJL)
   - Fixes to `READ_MULTI` and `GET_BLOCK_SECURITY` commands in ISO 15693-3 emulation (#501 by @WillyJL & aaronjamt)
   - Fix CLI with NTAG4xx and Type 4 Tag support (by @WillyJL)
   - UL: Fix LED not blinking at SLIX unlock (by @xMasterX)
+  - UL: Fix "MIR" and other EMV cards crash on Read (by @Dmitry422)
+  - OFW PR 4362: Fix BusFault in Write to Initial Card (by @akrylysov)
+  - OFW PR 4369: Fix stack buffer overflows in MFUL FAST_READ and DESFire file settings parsers (by @qp-x-qp)
 - uFBT: Fix .clangd config for IDEs besides VSCode (by @WillyJL)
 - UL: Settings: Storage settings exit scenes properly if used via favourites (by @xMasterX)
 - UL: UI: Some small changes (by @xMasterX)
-- OFW: USB: Fix USB HID keyboard LED state reporting (by @Caballosanex)
+- OFW PR 4364: JS: Address utf8 support when uploading JavaScript application (by @bekindpleaserewind)
+- OFW PR 4338: USB: Fix USB HID keyboard LED state reporting (by @Caballosanex)
 
 ### Removed:
 - Sub-GHz:
   - Removed Starline, ScherKhan and Kia protocols from main Sub-GHz app, they can be decoded with `Apps > Sub-GHz > ProtoPirate` external app
-  - Disabled X10 and Hormann Bisecur protocols due to flash space constraints and very limited usefulness, Momentum now has same protocol list as Unleashed
+  - Disabled X10 and Hormann Bisecur protocols due to flash space constraints and very limited usefulness, Momentum now has the same protocol list as Unleashed
 - Desktop: Removed winter holidays anims
